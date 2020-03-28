@@ -4,7 +4,7 @@ import LeftSectionSvg from './LeftSectionSvg';
 import CenterSectionSvg from './CenterSectionSvg';
 import RightSectionSvg from './RightSectionSvg';
 
-function Home() {
+function Covid19() {
     return (
         <div>
             <div className="home m-5">
@@ -25,4 +25,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Covid19
