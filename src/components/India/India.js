@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import IndiaSvg from './IndiaSvg';
 import axios from '../../config/axios';
 import TableData from './TableData';
+import ReactGA from 'react-ga'
 import StateDashboard from './StateDashboard';
 import TotalDashboard from './TotalDashboard';
 
@@ -44,7 +45,13 @@ export class India extends Component {
         return `${year}-${month}-${day}T${time}`;
     };
 
+    initializeAnalytics = () => {
+        ReactGA.initialize("UA-162030642-1")
+        ReactGA.pageview("/India")
+    }
+
     componentDidMount = () => {
+        this.initializeAnalytics()
         this.getStatesData()
 
     }
