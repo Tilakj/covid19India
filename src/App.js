@@ -9,6 +9,8 @@ const initializeAnalytics = () => {
   ReactGA.initialize("UA-162030642-1")
   ReactGA.pageview("/Home")
 }
+
+
 function App() {
   initializeAnalytics()
   return (
