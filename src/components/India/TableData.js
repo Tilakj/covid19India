@@ -6,7 +6,6 @@ export default function TableData({ districtDetails }) {
             {
                 districtDetails &&
                 <>
-                    {/* <h4 className="shadow-sm table-dark table-bordered text-center pb-1">{details.state}</h4> */}
                     <table className="table table-sm text-center table-dark shadow-sm theme">
                         <thead>
                             <tr>

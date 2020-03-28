@@ -9,6 +9,8 @@
     "animate.css": "^3.7.2",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "date-fns": "^2.11.1",
+    "date-fns-tz": "^1.0.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",

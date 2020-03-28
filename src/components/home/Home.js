@@ -9,13 +9,13 @@ function Home() {
         <div>
             <div className="home m-5">
                 <div className="row">
-                    <div className="col-md-4 col-sm-6 animated fadeIn">
+                    <div className="col-md-4 col-sm-6 animated fadeIn mt-4">
                         <LeftSectionSvg />
                     </div>
-                    <div className="col-md-4 d-none d-sm-block animated fadeIn">
+                    <div className="col-md-4 d-none d-sm-block animated fadeIn mt-5">
                         <CenterSectionSvg />
                     </div>
-                    <div className="col-md-4 col-sm-6 animated fadeIn">
+                    <div className="col-md-4 col-sm-6 animated fadeIn mt-4">
                         <RightSectionSvg />
                     </div>
                 </div>

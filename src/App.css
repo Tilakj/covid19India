@@ -34,9 +34,10 @@ body {
   color: rgb(177, 177, 177);
 }
 
-/* .bg-danger,.bg-warning,.bg-success,.bg-dark{
-  opacity: 0.2;
-} */
+.last-update-card, .footer {
+  color: rgb(177, 177, 177);
+  font-size: x-small;
+}
 
 .title {
   font-size: smaller;

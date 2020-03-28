@@ -10,13 +10,13 @@ export class India extends Component {
         super(props)
 
         this.state = {
-            showDetails: '',
             stateDetails: {},
             districtDetails: {},
-            cases: [],
             statesData: [],
             districtsData: [],
-            totalDetails: {}
+            totalDetails: {},
+            lastUpdated: '',
+            selected: ''
         }
     }
     states = [{ id: "IN-AN", title: "Andaman and Nicobar Islands" }, { id: "IN-AP", title: "Andhra Pradesh" }, { id: "IN-AR", title: "Arunachal Pradesh" }, { id: "IN-AS", title: "Assam" }, { id: "IN-BR", title: "Bihar" }, { id: "IN-CH", title: "Chandigarh" }, { id: "IN-CT", title: "Chhattisgarh" }, { id: "IN-DD", title: "Daman and Diu" }, { id: "IN-DL", title: "Delhi" }, { id: "IN-DN", title: "Dadra and Nagar Haveli" }, { id: "IN-GA", title: "Goa" }, { id: "IN-GJ", title: "Gujarat" }, { id: "IN-HP", title: "Himachal Pradesh" }, { id: "IN-HR", title: "Haryana" }, { id: "IN-JH", title: "Jharkhand" }, { id: "IN-JK", title: "Jammu and Kashmir" }, { id: "IN-KA", title: "Karnataka" }, { id: "IN-KL", title: "Kerala" }, { id: "IN-LD", title: "Lakshadweep" }, { id: "IN-MH", title: "Maharashtra" }, { id: "IN-ML", title: "Meghalaya" }, { id: "IN-MN", title: "Manipur" }, { id: "IN-MP", title: "Madhya Pradesh" }, { id: "IN-MZ", title: "Mizoram" }, { id: "IN-NL", title: "Nagaland" }, { id: "IN-OR", title: "Odisha" }, { id: "IN-PB", title: "Punjab" }, { id: "IN-PY", title: "Puducherry" }, { id: "IN-RJ", title: "Rajasthan" }, { id: "IN-SK", title: "Sikkim" }, { id: "IN-TG", title: "Telangana" }, { id: "IN-TN", title: "Tamil Nadu" }, { id: "IN-TR", title: "Tripura" }, { id: "IN-UP", title: "Uttar Pradesh" }, { id: "IN-UT", title: "Uttarakhand" }, { id: "IN-WB", title: "West Bengal" }]
@@ -29,19 +29,24 @@ export class India extends Component {
                 return stateData.state.includes('Total')
             })
 
-            this.setState({ statesData: statesData.data.statewise, districtData: districtData.data, totalDetails }, () => {
-                console.log(this.state.statesData)
-                console.log(this.state.districtData)
-                console.log(this.state.totalDetails)
-            })
+            this.setState({ statesData: statesData.data.statewise, districtData: districtData.data, totalDetails, lastUpdated: statesData.data.statewise[0].lastupdatedtime })
         }
         catch (error) {
             console.log(error)
         }
     }
 
+    formatDate = (unformattedDate) => {
+        const day = unformattedDate.slice(0, 2);
+        const month = unformattedDate.slice(3, 5);
+        const year = unformattedDate.slice(6, 10);
+        const time = unformattedDate.slice(11);
+        return `${year}-${month}-${day}T${time}`;
+    };
+
     componentDidMount = () => {
         this.getStatesData()
+
     }
 
     getDetails = (id) => {
@@ -68,29 +73,34 @@ export class India extends Component {
     }
     handleMouseOver = (e) => {
         const [stateDetails, districtDetails] = this.getDetails(e.target.id)
-        this.setState({ stateDetails, districtDetails }, () => {
+        this.setState({ stateDetails, districtDetails, selected: e.target.id }, () => {
             console.log(this.state.stateDetails)
             console.log(this.state.districtDetails)
         })
     }
 
     render() {
-        const { stateDetails, districtDetails, totalDetails } = this.state
+        const { stateDetails, districtDetails, totalDetails, lastUpdated, selected } = this.state
         return (
             <>
                 <div className="row d-flex justify-content-center mt-1">
-                    <TotalDashboard totalDetails={totalDetails} />
+                    <TotalDashboard totalDetails={totalDetails} lastUpdated={lastUpdated} formatDate={this.formatDate} />
                 </div>
                 <div className="row mt-1">
                     <div className="col-md-4  offset-1 mt-5 animated fadeIn">
+                        <p className="theme">Hover over a state for more details</p>
                         <IndiaSvg handleMouseOver={this.handleMouseOver} />
                     </div>
-                    <div className="col-md-1 offset-md-1 mt-3 p-2 ml-3 animated fadeIn title theme">
-                        <StateDashboard stateDetails={stateDetails} />
-                    </div>
-                    <div className="col-md-4 mt-4 offset-md-1 p-1 animated fadeIn" >
-                        <TableData districtDetails={districtDetails} />
-                    </div>
+                    {selected &&
+                        <>
+                            <div className="col-md-1 offset-md-1 mt-3 p-2 ml-3 animated fadeIn title theme">
+                                <StateDashboard stateDetails={stateDetails} />
+                            </div>
+                            <div className="col-md-4 mt-4 offset-md-1 p-1 animated fadeIn" >
+                                <TableData districtDetails={districtDetails} />
+                            </div>
+                        </>
+                    }
                 </div>
             </>
         )
