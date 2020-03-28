@@ -1,0 +1,87 @@
+body {
+  background-image: url("Figbackground.svg");
+  background-size: cover;
+}
+
+.bg-dark {
+  background-color: rgb(52, 62, 88) !important;
+}
+
+.table-dark {
+  background-color: rgba(52, 62, 88, 0.637) !important;
+  border-radius: 5px !important;
+  /* opacity: 0.7; */
+}
+
+.navbar-brand, h4 {
+  color: #D1836B !important;
+}
+
+.state-card {
+  width: 100px;
+  height: 80px;
+  text-align: center;
+  align-items: center;
+  border-radius: 10%;
+}
+
+.total-card {
+  width: 100px;
+  height: 80px;
+  text-align: center;
+  align-items: center;
+  border-radius: 10%;
+  color: rgb(177, 177, 177);
+}
+
+/* .bg-danger,.bg-warning,.bg-success,.bg-dark{
+  opacity: 0.2;
+} */
+
+.title {
+  font-size: smaller;
+}
+
+.danger {
+  background-color: rgba(201, 58, 58, 0.103);
+  color: rgb(209, 82, 44) !important;
+}
+
+.warning {
+  background-color: rgba(230, 217, 39, 0.103);
+  color: rgb(218, 176, 61) !important;
+}
+
+.success {
+  background-color: rgba(50, 146, 31, 0.103);
+  color: rgb(58, 184, 79) !important;
+}
+
+.dark {
+  background-color: rgba(167, 163, 163, 0.103);
+  color: rgb(172, 172, 172) !important;
+}
+
+.theme {
+  color: #D1836B;
+}
+
+.state-name {
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  align-items: center;
+  color: #D1836B;
+}
+
+.land {
+  fill: #363E56;
+  stroke: #D1836B;
+  opacity: 0.8;
+}
+
+.land:hover {
+  stroke: #363E56;
+  fill: #D1836B;
+  cursor: pointer;
+}
