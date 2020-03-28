@@ -19,7 +19,7 @@ function App() {
         <Link to='/' className="navbar-brand" ><h4>COVID-19 India</h4><span className="sr-only">(current)</span></Link>
         <div id="navbarNavAltMarkup">
           <div className="navbar-nav mr-auto">
-            <Link to='/covid19' className="nav-item nav-link float-right mr-5 btn btn-sm button-color p-2"><strong>What is COVID-19?</strong><span className="sr-only">(current)</span></Link>
+            <Link to='/covid19' className="nav-item nav-link float-right mr-5 btn btn-sm button-color p-2 mb-1"><strong>What is COVID-19?</strong><span className="sr-only">(current)</span></Link>
           </div>
         </div>
       </nav>
