@@ -78,10 +78,10 @@ export class India extends Component {
         return [stateDetails, districtDetails]
 
     }
-    handleMouseOver = (e) => {
+    handleOnClick = (e) => {
         const [stateDetails, districtDetails] = this.getDetails(e.target.id)
         this.setState({ stateDetails, districtDetails, selected: e.target.id }, () => {
-            console.log(this.state.stateDetails)
+            // console.log(this.state.stateDetails)
             console.log(this.state.districtDetails)
         })
     }
@@ -95,8 +95,7 @@ export class India extends Component {
                 </div>
                 <div className="row mt-1">
                     <div className="col-md-4  offset-1 mt-5 animated fadeIn">
-                        <p className="theme">Hover over a state for more details</p>
-                        <IndiaSvg handleMouseOver={this.handleMouseOver} />
+                        <IndiaSvg handleOnClick={this.handleOnClick} selected={selected}/>
                     </div>
                     {selected &&
                         <>

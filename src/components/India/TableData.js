@@ -11,6 +11,8 @@ export default function TableData({ districtDetails }) {
                             <tr>
                                 <th scope="col">District</th>
                                 <th scope="col">Confirmed</th>
+                                <th scope="col">Active</th>
+                                <th scope="col">Recovered</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -20,6 +22,8 @@ export default function TableData({ districtDetails }) {
                                         <tr key={index}>
                                             <td className="title">{district}</td>
                                             <td>{districtDetails[district].confirmed}</td>
+                                            <td>{districtDetails[district].active}</td>
+                                            <td>{districtDetails[district].recovered}</td>
                                         </tr>
                                     )
                                 })

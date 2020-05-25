@@ -26,8 +26,9 @@ body {
 }
 
 .total-card {
-  width: 100px;
-  height: 80px;
+  /* width: 100px;*/
+  min-width: 100px;
+  height: 80px; 
   text-align: center;
   align-items: center;
   border-radius: 10%;
@@ -36,7 +37,8 @@ body {
 
 .button-color {
   background-color: #D1836B !important;
-  color: #363E56 !important;;
+  color: #363E56 !important;
+  ;
 }
 
 .last-update-card, .footer {
@@ -86,8 +88,12 @@ body {
   opacity: 0.8;
 }
 
-.land:hover {
+.land:hover,.activeLand  {
   stroke: #363E56;
   fill: #D1836B;
   cursor: pointer;
+  opacity: 0.8;
+}
+.land:hover{
+  opacity: 0.5;
 }
