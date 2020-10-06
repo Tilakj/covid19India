@@ -18,7 +18,7 @@ body {
 }
 
 .state-card {
-  width: 100px;
+  min-width: 100px;
   height: 80px;
   text-align: center;
   align-items: center;
